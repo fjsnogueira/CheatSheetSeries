@@ -271,5 +271,21 @@
      <loc>https://cheatsheetseries.owasp.org/cheatsheets/XML_Security_Cheat_Sheet.html</loc>
      <lastmod>2020-09-01</lastmod>
      <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://cheatsheetseries.owasp.org/comments/Sample_Comment.html</loc>
+     <lastmod>2020-09-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://cheatsheetseries.owasp.org/customizations/Sample_Customization.html</loc>
+     <lastmod>2020-09-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://cheatsheetseries.owasp.org/pocs/Sample_POC.html</loc>
+     <lastmod>2020-09-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://cheatsheetseries.owasp.org/tools/Sample_Tool.html</loc>
+     <lastmod>2020-09-01</lastmod>
+     <changefreq>daily</changefreq>
     </url>
 </urlset>

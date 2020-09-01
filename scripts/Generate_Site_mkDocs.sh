@@ -14,7 +14,6 @@ echo "Step 1/7: Init work folder."
 rm -rf $WORK 1>/dev/null 2>&1
 mkdir $WORK
 mkdir $WORK/cheatsheets
-mkdir $WORK/custom_theme
 mkdir $WORK/custom_theme/img
 
 echo "Step 2/7: Generate the summary markdown page "
@@ -27,6 +26,10 @@ cp ../mkdocs.yml $WORK/.
 cp ../Preface.md $WORK/cheatsheets/index.md
 mv News.xml $WORK/cheatsheets/.
 cp -r ../cheatsheets $WORK/cheatsheets/cheatsheets
+cp -r ../comments $WORK/cheatsheets/comments
+cp -r ../customizations $WORK/cheatsheets/customizations
+cp -r ../pocs $WORK/cheatsheets/pocs
+cp -r ../tools $WORK/cheatsheets/tools
 cp -r ../assets $WORK/cheatsheets/assets
 cp ../Index.md $WORK/cheatsheets/Glossary.md
 cp ../IndexASVS.md $WORK/cheatsheets/IndexASVS.md
@@ -67,6 +70,70 @@ for fullfile in $WORK/cheatsheets/cheatsheets/*.md
 do
     filename=$(basename -- "$fullfile")
     filename="${filename%_Cheat_Sheet.*}"
+
+    echo "Processing file: $fullfile - $filename"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # Mac OSX
+        sed -i '' "1i\\
+            Title: ${filename//[_]/ }\\
+            " $fullfile
+    else
+        sed -i "1iTitle: ${filename//[_]/ }\n" $fullfile
+    fi
+done
+
+for fullfile in $WORK/cheatsheets/comments/*.md
+do
+    filename=$(basename -- "$fullfile")
+    filename="${filename%_Comment.*}"
+
+    echo "Processing file: $fullfile - $filename"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # Mac OSX
+        sed -i '' "1i\\
+            Title: ${filename//[_]/ }\\
+            " $fullfile
+    else
+        sed -i "1iTitle: ${filename//[_]/ }\n" $fullfile
+    fi
+done
+
+for fullfile in $WORK/cheatsheets/customizations/*.md
+do
+    filename=$(basename -- "$fullfile")
+    filename="${filename%_Customization.*}"
+
+    echo "Processing file: $fullfile - $filename"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # Mac OSX
+        sed -i '' "1i\\
+            Title: ${filename//[_]/ }\\
+            " $fullfile
+    else
+        sed -i "1iTitle: ${filename//[_]/ }\n" $fullfile
+    fi
+done
+
+for fullfile in $WORK/cheatsheets/pocs/*.md
+do
+    filename=$(basename -- "$fullfile")
+    filename="${filename%_POC.*}"
+
+    echo "Processing file: $fullfile - $filename"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # Mac OSX
+        sed -i '' "1i\\
+            Title: ${filename//[_]/ }\\
+            " $fullfile
+    else
+        sed -i "1iTitle: ${filename//[_]/ }\n" $fullfile
+    fi
+done
+
+for fullfile in $WORK/cheatsheets/tools/*.md
+do
+    filename=$(basename -- "$fullfile")
+    filename="${filename%_Tool.*}"
 
     echo "Processing file: $fullfile - $filename"
     if [[ "$OSTYPE" == "darwin"* ]]; then

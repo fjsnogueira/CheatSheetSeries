@@ -14,6 +14,7 @@ echo "Step 1/7: Init work folder."
 rm -rf $WORK 1>/dev/null 2>&1
 mkdir $WORK
 mkdir $WORK/cheatsheets
+mkdir $WORK/custom_theme
 mkdir $WORK/custom_theme/img
 
 echo "Step 2/7: Generate the summary markdown page "
